@@ -17,3 +17,10 @@ Usage:
   
 To use the code as a payload, one need to remove the NULL values, these can be found by running: otool -lV reverse_shell and identify
 the mov instructions that need to be modified. See the code for two example on how to change the mov instruction
+
+To convert the binary to string values that can be used as a payload use
+  gobjdump -d ./$1|grep '[0-9a-f]:'|grep -v 'file'|cut -f2 -d:|cut -f1-6 -d' '|tr -s ' '|tr '\t' ' '|sed 's/ $//g'|sed 's/ /\\x/g' > dump.txt
+  By inspecting this file, we see why NULL(0x00) is a problem as in C a string is terminated by NULL so these has to be removed
+  A simple paste -d'\0' -s dump.txt will combine all rows into one that can then be copied into the C file.
+  
+  
