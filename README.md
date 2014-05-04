@@ -6,7 +6,7 @@ program that call out to a service that is listening to port 4444, the ip is set
 It is written for mac osx 64 bit
 
 #### Usage:
-  Start a listening server with the command: nc -l 4444 in another folder for example your home directory
+  Start a listening server with the command: `nc -l 4444` in another folder for example your home directory
 ```
   nasm -g -f macho64 reverse_shell.s
   ld  -arch x86_64 -macosx_version_min 10.7.0 -lSystem -o reverse_shell reverse_shell.o
