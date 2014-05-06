@@ -15,8 +15,12 @@ It is written for mac osx 64 bit
   Go back to the terminal that you started nc in and type ls, you should now see a directory listing of the directory you started
   reverse_shell in.
   
-To use the code as a payload, one need to remove the NULL values, these can be found by running: otool -lV reverse_shell and identify
-the mov instructions that need to be modified. See the code for two example on how to change the mov instruction
+To use the code as a payload, one need to remove the NULL bytes, these can be found by running: otool -lV reverse_shell and identify
+the mov instructions that need to be modified. The reason are the numerous NULL bytes (\x00). 
+Most buffer overflow errors are related to C stdlib string functions: strcpy(), sprintf(), strcat(), 
+and so on. All of these functions use the NULL symbol to indicate the end of a string. 
+Therefore, a function will not read shellcode after the first occurring NULL byte.
+See the code for two example on how to change the mov instruction
 
 #### Binary to string
 To convert the binary to string values that can be used as a payload use
