@@ -20,6 +20,7 @@ the mov instructions that need to be modified. The reason are the numerous NULL 
 Most buffer overflow errors are related to C stdlib string functions: strcpy(), sprintf(), strcat(), 
 and so on. All of these functions use the NULL symbol to indicate the end of a string. 
 Therefore, a function will not read shellcode after the first occurring NULL byte.
+There are other delimiters like linefeed (0x0A), carriage return (0x0D), 0xFF, and others.
 See the code for two example on how to change the mov instruction
 
 #### Binary to string
