@@ -10,7 +10,7 @@ It is written for mac osx 64 bit
 ```
   nasm -g -f macho64 reverse_shell.s
   ld  -arch x86_64 -macosx_version_min 10.7.0 -lSystem -o reverse_shell reverse_shell.o
-  run ./reverse_shell
+  ./reverse_shell
 ```  
   Go back to the terminal that you started nc in and type ls, you should now see a directory listing of the directory you started
   reverse_shell in.
