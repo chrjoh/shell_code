@@ -14,14 +14,14 @@ It is written for mac osx 64 bit
 ```  
 
 #### bindshell, Usage:
-  Start a listening server with the command: `nc -nv 127.0.0.1 4444` in another folder for example your home directory
+  bindshell start a listening server that you can connect to with the command: `nc -nv 127.0.0.1 4444` in another folder for example your home directory
   (Had some problem with the code, but @norsec0de and @TheColonial helped me to fix it, big thx to them for the help)
 ```
   nasm -g -f macho64 bindshell.s
   ld  -arch x86_64 -macosx_version_min 10.7.0 -lSystem -o bindshell bindshell.o
   ./bindshell
 ```  
-Go back to the terminal that you started nc in and type ls, you should now see a directory listing of the directory you started
+Go to the terminal and run `nc -nv 127.0.0.1 4444` then type ls, you should now see a directory listing of the directory you started
 bindshell in.
 
 
