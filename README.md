@@ -40,4 +40,8 @@ To convert the binary to string values that can be used as a payload use
 ```
   By inspecting this file, we see why NULL(0x00) is a problem as in C a string is terminated by NULL so these has to be removed
   A simple `paste -d'\0' -s dump.txt` will combine all rows into one that can then be copied into the C file.
+  Ànother way to find bad values is:
+```
+ gobjdump -D bindshell -M intel |grep 00
+``` 
   A more simple command to use is the osx otool, `otool -t reverse_shell_no_bad_values.o` we test our reverse_shell code in a simple c-program.  
