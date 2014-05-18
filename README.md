@@ -1,11 +1,11 @@
-reverse_shell
+shell_code_
 =============
-
-program that call out to a service that is listening to port 4444, the ip is set to any for simplicity.
-
-It is written for mac osx 64 bit
+Various shell code programs for osx 64 bit system.
 
 #### reverse_shell, Usage:
+  Program that call out to a service that is listening to port 4444, the ip is set to any for simplicity.
+  It is written for mac osx 64 bit
+
   Start a listening server with the command: `nc -l 4444` in another folder for example your home directory
 ```
   nasm -g -f macho64 reverse_shell.s
