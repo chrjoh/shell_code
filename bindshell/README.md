@@ -32,3 +32,8 @@ To convert the binary to string values that can be used as a payload use
  gobjdump -D bindshell -M intel |grep 00
 ``` 
   A more simple command to use is the osx otool, `otool -t bindshell_no_bad_values.o` we test our bindshell code in a simple c-program.  
+  A simple command in ruby give us the hex values for `/bin//sh`´(remember that osx is little endian)
+```
+  "/bin//sh".unpack('H*')
+  => ["2f62696e2f2f7368"] and that give us the value to use as: 0x68732f2f6e69622f
+```  
